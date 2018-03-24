@@ -12,3 +12,5 @@ Comandos do git
 	git status : mostra a situação dos arquivos modificados
 
 	git log : mostra as versões do arquivo especificado
+
+Modificação em um arquivo e criação de outro
