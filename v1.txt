@@ -1,0 +1,21 @@
+Primeira linha digitada
+
+Comandos do git
+	git init : configura o diretório atual como "work directory"
+	
+	git add : copia o arquivo indicado para a "Area de Stage"
+
+	git commit : gerar uma versão dos arquivos que estão na área de Stage
+
+	git ls-files : mostrar os arquivos que estão versionados
+
+	git status : mostra a situação dos arquivos modificados
+
+	git log : mostra as versões do arquivo especificado
+
+Modificação em um arquivo e criação de outro
+asljfdaslçj asdlfjasdfd sa
+f asdf 
+asdf
+ as
+fas
