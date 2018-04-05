@@ -6,8 +6,8 @@ public class SalarioFuncionario {
 	
 	public static void main(String[] args) {
 
-		System.out.println("Nome do Funcionario: ");
-		String nome = scan.next();
+		System.out.print("Nome do Funcionario: ");
+		String nome = scan.nextLine();
 		
 		double salarioBruto = obterSalario();
 		
@@ -23,7 +23,7 @@ public class SalarioFuncionario {
 		double calculoIr = calculoIr(salarioBruto);
 		
 		// Joao 
-		double salarioLiquido = obterSalarioLiquido(salarioBruto, calculoFgts, calculoFgts, calculoIr);
+		double salarioLiquido = obterSalarioLiquido(salarioBruto, calculoInss, calculoFgts, calculoIr);
 		
 		System.out.println("Salario Bruto: " + String.format("R$ %.2f", salarioBruto));
 		System.out.println("INSS: " + String.format("R$ %.2f", calculoInss));
@@ -33,11 +33,10 @@ public class SalarioFuncionario {
 				
 	}
 
-	private static double obterSalarioLiquido(double salarioBruto, double calculoFgts, double calculoFgts2,
+	private static double obterSalarioLiquido(double salarioBruto, double calculoInss, double calculoFgts,
 			double calculoIr) {
 		//salarioLiquido = salarioBruto - calculoFgts - calculoINSS - calculoIr
-		
-		return 0;
+		return salarioBruto - calculoInss - calculoFgts - calculoIr;
 	}
 
 	private static double calculoIr(double salarioBruto) {
