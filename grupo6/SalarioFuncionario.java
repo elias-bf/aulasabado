@@ -9,10 +9,64 @@ public class SalarioFuncionario {
 		System.out.println("Nome do Funcionario: ");
 		String nome = scan.next();
 		
-		double salarioB = obterSalario();
+		double salarioBruto = obterSalario();
 		
 		int numDependentes = obterDependentes();
+		
+		// Jefson
+		double calculoInss = calculoInss(salarioBruto);
+		
+		// Mathues Cardoso
+		double calculoFgts = calculoFgts(salarioBruto);
+		
+		// Mathues Dos Santos
+		double calculoIr = calculoIr(salarioBruto);
+		
+		// Joao 
+		double salarioLiquido = obterSalarioLiquido(salarioBruto, calculoFgts, calculoFgts, calculoIr);
+		
+		System.out.println("Salario Bruto: " + String.format("R$ %.2f", salarioBruto));
+		System.out.println("INSS: " + String.format("R$ %.2f", calculoInss));
+		System.out.println("FGTS: " + String.format("R$ %.2f", calculoFgts));
+		System.out.println("Imposto de Renda: " + String.format("R$ %.2f", calculoIr));
+		System.out.println("Salario Liquido: " + String.format("R$ %.2f", salarioLiquido));
 				
+	}
+
+	private static double obterSalarioLiquido(double salarioBruto, double calculoFgts, double calculoFgts2,
+			double calculoIr) {
+		//salarioLiquido = salarioBruto - calculoFgts - calculoINSS - calculoIr
+		
+		return 0;
+	}
+
+	private static double calculoIr(double salarioBruto) {
+		//É descontado sobre uma aliquota
+		//salario bruto abaixo de 1.903,98 é ISENTO
+		//Salario bruto entre 1.903,99 e 2.826,65 é descontado 7,5 %
+		//salario bruto entre 2.826,66 e 3.751,05 é descontado 15,0%
+		//salario bruto entre 3.751,06 e 4.664,68 é descontado 22,5%
+		//salario bruto acima de 6.645,80 é descontado 27,5%
+		
+		return 0;
+	}
+
+	private static double calculoFgts(double salarioBruto) {
+		//É descontado 8% sobre o salario bruto | resultado = salariobruto - (salariobruto * 0,08)
+		//valordesconto = salariobruto*0,08
+		//
+		
+		return 0;
+	}
+
+	private static double calculoInss(double salarioBruto) {
+		//o calculo pode ser feito utilizando if e else
+		//salario bruto até 1.693,72 é descontado 8% do salario bruto
+		//salario bruto entre 1.693,73 e 2.822,90 é descontado 9% do salario bruto
+		//salario bruto entre 2.822,91 e 5.645,80 é descontado 11%
+		//acima de 5.645,81 é descontado o valor de R$621,04
+		
+		return 0;
 	}
 
 	private static double obterSalario() {
