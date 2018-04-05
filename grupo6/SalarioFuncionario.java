@@ -47,8 +47,20 @@ public class SalarioFuncionario {
 		//salario bruto entre 2.826,66 e 3.751,05 é descontado 15,0%
 		//salario bruto entre 3.751,06 e 4.664,68 é descontado 22,5%
 		//salario bruto acima de 6.645,80 é descontado 27,5%
+		double descontoIR = 0;
+		if(salarioBruto < 1903.98) {
+			System.out.println("ISENTO");
+		}else if(salarioBruto >= 1903.99 && salarioBruto <= 2826.65){
+			descontoIR = salarioBruto * 0.075;
+		}else if(salarioBruto >= 2826.66 && salarioBruto <= 3751.05) {
+			descontoIR = salarioBruto * 0.15;
+		}else if(salarioBruto >= 3751.06 && salarioBruto <= 4664.68) {
+			descontoIR = salarioBruto * 0.225;
+		}else if(salarioBruto > 4664.68) {
+			descontoIR = salarioBruto * 0.275;
+		}
 		
-		return 0;
+		return descontoIR;
 	}
 
 	private static double calculoFgts(double salarioBruto) {
