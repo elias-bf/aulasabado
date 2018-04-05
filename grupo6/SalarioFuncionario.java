@@ -77,8 +77,17 @@ public class SalarioFuncionario {
 		//salario bruto entre 1.693,73 e 2.822,90 é descontado 9% do salario bruto
 		//salario bruto entre 2.822,91 e 5.645,80 é descontado 11%
 		//acima de 5.645,81 é descontado o valor de R$621,04
-		
-		return 0;
+		double descontoInss = 0;
+		if(salarioBruto <= 1693.72) {
+			descontoInss = salarioBruto * 0.08;
+		}else if(salarioBruto >= 1693.73 && salarioBruto <= 2822.90) {
+			descontoInss = salarioBruto * 0.09;
+		}else if(salarioBruto >= 2822.91 && salarioBruto <= 5645.80) {
+			descontoInss = salarioBruto * 0.11;
+		}else if(salarioBruto >= 5645.81) {
+			descontoInss = 621.04;
+		}		
+		return descontoInss;
 	}
 
 	private static double obterSalario() {
