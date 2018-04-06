@@ -1,12 +1,19 @@
 Primeira linha digitada
 
 Comandos do git
+	
+	1. CLONAR UM REPOSITÓRIO REMOTO PARA SUA MAQUINA LOCAL	
+
 	git clone : copia (clona) um repositório remoto para sua maquina
 		exemplo: git clone https://github.com/elias-bf/aulasabado.git
 
 	Configura informação sobre o usuário no repositório clonado
 		git config user.name "Seu nome"
 		git config user.email "SeuEmail@provedor.com.br"
+
+
+
+	2. A CADA ARQUIVO(S) CRIADO, OS COMANDOS ABAIXO PODEM SER UTILIZADOS
 
 	git add : copia o arquivo indicado para a "Area de Stage"
 		exemplo: git add arquivo.java
