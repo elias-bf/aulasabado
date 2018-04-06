@@ -20,62 +20,71 @@ public class SalarioFuncionario {
 		double calculoFgts = calculoFgts(salarioBruto);
 		
 		// Mathues Dos Santos
-		double calculoIr = calculoIr(salarioBruto);
+		double calculoAliquotaIR = calculoAliquotaIR(salarioBruto, numDependentes, calculoInss);
+		
+		double calculoIr = calculoIr(calculoAliquotaIR);
 		
 		// Joao 
-		double salarioLiquido = obterSalarioLiquido(salarioBruto, calculoInss, calculoFgts, calculoIr);
+		double salarioLiquido = obterSalarioLiquido(salarioBruto, calculoFgts, calculoInss, calculoIr);
 		
+		
+		System.out.println("-------------------------------------------------------");
 		System.out.println("Salario Bruto: " + String.format("R$ %.2f", salarioBruto));
+		System.out.println("-------------------------------------------------------");
 		System.out.println("INSS: " + String.format("R$ %.2f", calculoInss));
 		System.out.println("FGTS: " + String.format("R$ %.2f", calculoFgts));
-		System.out.println("Imposto de Renda: " + String.format("R$ %.2f", calculoIr));
+		if(calculoIr <= 0) {
+			System.out.println("IRRF: ISENTO");
+		}else {
+			System.out.println("Aliquota do IRRF: " + String.format("R$ %.2f", calculoAliquotaIR));
+			System.out.println("IRRF: " + String.format("R$ %.2f", calculoIr));
+		}
 		System.out.println("Salario Liquido: " + String.format("R$ %.2f", salarioLiquido));
-				
+		System.out.println("-------------------------------------------------------");
+		
+		
+	}
+
+	private static double calculoAliquotaIR(double salarioBruto, int numDependentes, double calculoInss) {
+		
+		return (salarioBruto - calculoInss - (187.80 * numDependentes));
+		
 	}
 
 	private static double obterSalarioLiquido(double salarioBruto, double calculoInss, double calculoFgts,
 			double calculoIr) {
-		//salarioLiquido = salarioBruto - calculoFgts - calculoINSS - calculoIr
+
 		return salarioBruto - calculoInss - calculoFgts - calculoIr;
 	}
 
-	private static double calculoIr(double salarioBruto) {
-		//É descontado sobre uma aliquota
-		//salario bruto abaixo de 1.903,98 é ISENTO
-		//Salario bruto entre 1.903,99 e 2.826,65 é descontado 7,5 %
-		//salario bruto entre 2.826,66 e 3.751,05 é descontado 15,0%
-		//salario bruto entre 3.751,06 e 4.664,68 é descontado 22,5%
-		//salario bruto acima de 6.645,80 é descontado 27,5%
+	private static double calculoIr(double calculoAliquotaIR) {
+	
 		double descontoIR = 0;
-		if(salarioBruto < 1903.98) {
-			System.out.println("ISENTO");
-		}else if(salarioBruto >= 1903.99 && salarioBruto <= 2826.65){
-			descontoIR = salarioBruto * 0.075;
-		}else if(salarioBruto >= 2826.66 && salarioBruto <= 3751.05) {
-			descontoIR = salarioBruto * 0.15;
-		}else if(salarioBruto >= 3751.06 && salarioBruto <= 4664.68) {
-			descontoIR = salarioBruto * 0.225;
-		}else if(salarioBruto > 4664.68) {
-			descontoIR = salarioBruto * 0.275;
+		if(calculoAliquotaIR < 1903.98) {
+			descontoIR = calculoAliquotaIR * 0;
+		}else if(calculoAliquotaIR >= 1903.99 && calculoAliquotaIR <= 2826.65){
+			descontoIR = calculoAliquotaIR * 0.075 - 142.80;
+			
+		}else if(calculoAliquotaIR >= 2826.66 && calculoAliquotaIR <= 3751.05) {
+			descontoIR = calculoAliquotaIR * 0.15 - 354.80;
+		}else if(calculoAliquotaIR >= 3751.06 && calculoAliquotaIR <= 4664.68) {
+			descontoIR = calculoAliquotaIR * 0.225 - 636.13;
+		}else if(calculoAliquotaIR > 4664.68) {
+			descontoIR = calculoAliquotaIR * 0.275 - 869.36;
 		}
-		
 		return descontoIR;
 	}
 
 	private static double calculoFgts(double salarioBruto) {
 		//É descontado 8% sobre o salario bruto | resultado = salariobruto - (salariobruto * 0,08)
 		//valordesconto = salariobruto*0,08
-		//
+		double descontoFgts;
+		descontoFgts = salarioBruto * 0.08;
 		
-		return 0;
+		return descontoFgts;
 	}
 
 	private static double calculoInss(double salarioBruto) {
-		//o calculo pode ser feito utilizando if e else
-		//salario bruto até 1.693,72 é descontado 8% do salario bruto
-		//salario bruto entre 1.693,73 e 2.822,90 é descontado 9% do salario bruto
-		//salario bruto entre 2.822,91 e 5.645,80 é descontado 11%
-		//acima de 5.645,81 é descontado o valor de R$621,04
 		double descontoInss = 0;
 		if(salarioBruto <= 1693.72) {
 			descontoInss = salarioBruto * 0.08;
