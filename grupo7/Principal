@@ -1,0 +1,45 @@
+package br.com.senac.exercico.salario;
+
+import java.text.NumberFormat;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	private static final String LINHA = "\n ";
+
+	public static void main(String[] args) {
+
+		TelaView telaView = new TelaView();
+		Funcionario funcionario = telaView.receberDados();
+
+		exibirResultado(funcionario);
+	}
+
+	/**
+	 * Método responsável por exibir os dados do funcionário. Faça um programa que
+	 * imprima o nome do funcionário, além de calcular e imprimir o salário bruto,
+	 * os valores descontados para cada tipo de imposto e finalmente qual o salário
+	 * líquido do funcionário.
+	 * 
+	 * @param funcionario
+	 */
+	private static void exibirResultado(Funcionario funcionario) {
+		// Utilizar StringBuilder porque não é sincronizado. Ou seja, mais
+		// rápido.
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("Funcionário: " + funcionario.getNome());
+		sb.append(LINHA);
+		sb.append("Salário Bruto: " + NumberFormat.getCurrencyInstance().format(funcionario.getSalarioBruto()));
+		sb.append(LINHA);
+		sb.append("Desconto Inss: (-)" + NumberFormat.getCurrencyInstance().format(funcionario.getDescontoInss()));
+		sb.append(LINHA);
+		sb.append("Desconto de IR: (-)" + NumberFormat.getCurrencyInstance().format(funcionario.getDescontoIr()));
+		sb.append(LINHA);
+		sb.append("Salário Líquido: " + NumberFormat.getCurrencyInstance().format(funcionario.getSalarioLiquido()));
+
+		JOptionPane.showMessageDialog(null, sb.toString());
+	}
+}
