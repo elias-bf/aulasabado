@@ -1,0 +1,79 @@
+
+package br.com.senac.exercico.salario;
+
+public class Funcionario {
+	/*
+	 * Uma empresa possui, para um determinado funcionário, uma ficha contendo: o
+	 * nome, número de horas trabalhadas e o nº de dependentes de um funcionário. *
+	 */
+
+	private String nome;
+	private float horasTrabalhadas;
+	private int numeroDependentes;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public float getHorasTrabalhadas() {
+		return horasTrabalhadas;
+	}
+
+	public void setHorasTrabalhadas(float horasTrabalhadas) {
+		this.horasTrabalhadas = horasTrabalhadas;
+	}
+
+	public int getNumeroDependentes() {
+		return numeroDependentes;
+	}
+
+	public void setNumeroDependentes(int numeroDependentes) {
+		this.numeroDependentes = numeroDependentes;
+	}
+
+	/*
+	 * Sobre o salário são feitos descontos de 8,5% para o INSS e 5% para IR
+	 */
+
+	/**
+	 * Método responsável por retornar o salário bruto do funcionário
+	 * 
+	 * @return
+	 */
+	public float getSalarioBruto() {
+		return (getHorasTrabalhadas() * Pagamento.getValorHoraTrabalha())
+				+ (getNumeroDependentes() * Pagamento.getValorDependente());
+	}
+
+	/**
+	 * Método responsável por retornar o valor do desconto do INSS do funcionário
+	 * 
+	 * @return
+	 */
+	public float getDescontoInss() {
+		return getSalarioBruto() * Pagamento.getInss();
+	}
+
+	/**
+	 * Método responsálve por retornar o valor do desconto do IR do funcionário
+	 * 
+	 * @return
+	 */
+	public float getDescontoIr() {
+		return getSalarioBruto() * Pagamento.getIr();
+	}
+
+	/**
+	 * Método responsável por retornar o valor do salário líquido do funcionário
+	 * 
+	 * @return
+	 */
+	public float getSalarioLiquido() {
+		return getSalarioBruto() - (getDescontoInss() + getDescontoIr());
+	}
+
+}
