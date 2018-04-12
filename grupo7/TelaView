@@ -1,0 +1,69 @@
+package br.com.senac.exercico.salario;
+
+import javax.swing.JOptionPane;
+
+public class TelaView {
+	/**
+	 * Método responsável por receber os dados do funcionário
+	 * 
+	 * @param args
+	 * @return
+	 */
+	public Funcionario receberDados() {
+		Funcionario funcionario = new Funcionario();
+		funcionario.setNome(receberNomeFuncionario());
+		funcionario.setHorasTrabalhadas(receberTotalHorasFuncionario());
+		funcionario.setNumeroDependentes(receberTotalDependentes());
+		return funcionario;
+	}
+
+	/**
+	 * Método responsável por receber o nome do Funcionário
+	 * 
+	 * @return
+	 */
+	private String receberNomeFuncionario() {
+		return JOptionPane.showInputDialog("Digite o nome do empregado");
+	}
+
+	/**
+	 * Método responsável por receber o total de horas do funcionário
+	 * 
+	 * @return
+	 */
+	private Integer receberTotalHorasFuncionario() {
+		Integer totalHoras = null;
+		String totalHorasString = null;
+		do {
+			try {
+				totalHorasString = JOptionPane.showInputDialog("Digite o total de horas trabalhadas do empregado");
+				totalHoras = Integer.parseInt(totalHorasString);
+			} catch (Exception e) {
+				System.err.println(e.toString());
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Dados inválidos", JOptionPane.ERROR_MESSAGE);
+			}
+		} while (totalHoras == null);
+		return totalHoras;
+	}
+
+	/**
+	 * Método responsável por receber o total de dependentes
+	 * 
+	 * @return
+	 */
+	private Integer receberTotalDependentes() {
+		Integer totalDependentes = null;
+		String totalDependentesString = null;
+		do {
+			try {
+				totalDependentesString = JOptionPane.showInputDialog("Digite o total de dependentes do empregado");
+				totalDependentes = Integer.parseInt(totalDependentesString);
+			} catch (Exception e) {
+				System.err.println(e.toString());
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Dados inválidos", JOptionPane.ERROR_MESSAGE);
+			}
+		} while (totalDependentes == null);
+		return totalDependentes;
+	}
+
+}

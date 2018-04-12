@@ -1,0 +1,50 @@
+package br.com.senac.exercico.salario;
+
+public class Pagamento {
+	/*
+	 * A empresa paga R$ 30,00 por hora trabalha e R$100,00 reais por dependente; •
+	 * Sobre o salário são feitos descontos de 8,5% para o INSS e 5% para IR
+	 */
+	private final static float VALORHORA = 30.00F;
+	private final static float VALORDEPENDENTE = 100.00F;
+	private final static float DESCONTOINSS = 0.085F;
+	private final static float DESCONTOIR = 0.05F;
+
+	/**
+	 * Método responsável por retornar o valor da hora trabalhada.
+	 * 
+	 * @return
+	 */
+	public static float getValorHoraTrabalha() {
+		return VALORHORA;
+	}
+
+	/**
+	 * Método responsável por retornar o valor de cada dependente
+	 * 
+	 * @return
+	 */
+	public static float getValorDependente() {
+		return VALORDEPENDENTE;
+	}
+
+	/**
+	 * Método responsável por retornar a porcentagem de desconto do INSS
+	 * 
+	 * @return
+	 */
+	public static float getInss() {
+		return DESCONTOINSS;
+	}
+
+	/**
+	 * Método responsável por retornar a porcentagem de desconto do Imposto de Renda
+	 * - IR
+	 * 
+	 * @return
+	 */
+	public static float getIr() {
+		return DESCONTOIR;
+	}
+
+}

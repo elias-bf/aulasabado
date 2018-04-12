@@ -1,11 +1,25 @@
 Primeira linha digitada
 
 Comandos do git
-	git init : configura o diretório atual como "work directory"
 	
+	1. CLONAR UM REPOSITÓRIO REMOTO PARA SUA MAQUINA LOCAL	
+
+	git clone : copia (clona) um repositório remoto para sua maquina
+		exemplo: git clone https://github.com/elias-bf/aulasabado.git
+
+	Configura informação sobre o usuário no repositório clonado
+		git config user.name "Seu nome"
+		git config user.email "SeuEmail@provedor.com.br"
+
+
+
+	2. A CADA ARQUIVO(S) CRIADO, OS COMANDOS ABAIXO PODEM SER UTILIZADOS
+
 	git add : copia o arquivo indicado para a "Area de Stage"
+		exemplo: git add arquivo.java
 
 	git commit : gerar uma versão dos arquivos que estão na área de Stage
+		exemplo: git commit -m "Comentários sobre a mudança versão"
 
 	git ls-files : mostrar os arquivos que estão versionados
 
@@ -13,9 +27,7 @@ Comandos do git
 
 	git log : mostra as versões do arquivo especificado
 
-Modificação em um arquivo e criação de outro
-asljfdaslçj asdlfjasdfd sa
-f asdf 
-asdf
- as
-fas
+	git pull : atualiza o seu repositório com base no repositório remoto
+
+	git push : envia as suas modificações para o repositório remoto
+
