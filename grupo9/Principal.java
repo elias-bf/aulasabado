@@ -27,15 +27,13 @@ public class Principal {
 				System.out.println("O valor do salario não pode ser menor que o salario minimo!!!!!"
 						+ "Digite o valor do salario novamente:");
 				salario = s.nextDouble();
-				System.out.println("Digite a quantidade de dependentes:");
-				dependente = s.nextInt();
 			}
 			while (dependente < 0) {
 				System.out.println("O numero de dependentes não pode ser menor que 0!!!!!!!!!"
 						+ "Digite novamente a quantidade de dependentes:");
 				dependente = s.nextInt();
 			}
-			// Calculando o FGTS
+      
 
 			valorFgts = salario * taxaFgts;
 
@@ -52,25 +50,25 @@ public class Principal {
 			} else if (salario > 5645.80) {
 				valorInss = 621.04;
 			}
-			// Calculando o IR
+      
 			deduDependente = dependente * 189.59;
 			salarioBaseIrr = salario - (valorInss + deduDependente);
-			if (salarioBaseIrr <=1903.98) {
+			if (salarioBaseIrr < 1903.98) {
 				System.out.println("O empregado é isento do desconto de Imposto de Renda!!!!!!");
-			} else if ((salarioBaseIrr > 1903.98) && (salarioBaseIrr <= 2826.65)) {
+			} else if ((salarioBaseIrr >= 1903.99) && (salarioBaseIrr < 2826.65)) {
 				deducaoIr = (salarioBaseIrr * 0.075) - 142.80;
 
-			} else if ((salarioBaseIrr > 2826.65) && (salarioBaseIrr <=3751.05)) {
+			} else if ((salarioBaseIrr > 2826.65) && (salarioBaseIrr < 3751.05)) {
 				deducaoIr = (salarioBaseIrr * 0.15) - 354.80;
 
-			} else if ((salarioBaseIrr > 3751.05) && (salarioBaseIrr <= 4664.68)) {
+			} else if ((salarioBaseIrr > 3751.05) && (salarioBaseIrr < 4664.68)) {
 				deducaoIr = (salarioBaseIrr * 0.225) - 636.13;
 
 			} else if (salarioBaseIrr > 4664.68) {
 				deducaoIr = (salarioBaseIrr * 0.275) - 869.6;
 
 			}
-			// Calculando o salario liquido
+      
 			salarioLiq = salario - (valorInss + deducaoIr);
 
 			System.out.println("O valor a ser deduzido do FGTS é: " + df.format(valorFgts));
