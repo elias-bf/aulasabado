@@ -1,0 +1,41 @@
+--- Git ---
+git init
+git remote add origin https://github.com/elias-bf/aulasabado.git
+git clone https://github.com/elias-bf/aulasabado.git
+"criar/editar arquivo"
+git add arquivo.extensao
+git commit -m "arquivo de estudo para prova"
+git push -u origin master
+
+--- Slide 5 ---
+VV&T:..................................Verificação, Validação e Teste
+Validação:.............................assegurar que o produto final corresponda aos requisitos do usuário
+Verificação:...........................assegurar consistência, completude e corretude do produto em cada fase e entre fases consecutivas do ciclo de vida do software
+Teste:.................................Examina o comportamento do produto por meio de sua execução
+Erro:..................................trata-se de uma ação humana, por exemplo: não entendimento de como executar o cálculo
+Defeito:...............................deficiência mecânica ou algorítmica que, se ativada, pode levar a uma falha.
+Falha:.................................evento notável em que o sistema viola suas especificações
+Teste de validação:....................Tem a finalidade de mostrar que o software é o que o cliente deseja — que ele atende a seus requisitos.
+Teste de defeitos:.....................Destinado a revelar defeitos no sistema em vez de simular o seu uso operacional. O objetivo do teste de defeitos é encontrar inconsistências entre um programa e sua especificação.
+Processos de verificação e validação:..são dedicados a estabelecer a existência de defeitos em um sistema de software
+Debugging:.............................é um processo que localiza e corrige esses defeitos.
+Inspeções de software:.................Análise de representações estáticas do sistema com o objetivo de descobrir problemas (verificação estática)
+Caso de Teste:.........................Descreve uma condição particular a ser testada e é composto por valores de entrada, restrições para a sua execução e um resultado ou comportamento esperado
+Teste de Unidade:......................Tem por objetivo explorar a menor unidade do projeto, procurando provocar falhas ocasionadas por defeitos de lógica e de implementação em cada módulo, separadamente. 
+Teste de Integração:...................Visa provocar falhas associadas às interfaces entre os módulos quando esses são integrados para construir a estrutura do software que foi estabelecida na fase de projeto
+Teste de Sistema:......................Avalia o software em busca de falhas por meio da utilização do mesmo, como se fosse um usuário final.
+Teste de Aceitação:....................Simulam operações de rotina do sistema de modo a verificar se seu comportamento está de acordo com o solicitado. Realizados geralmente por um restrito grupo de usuários finais do sistema.
+Teste de Regressão:....................Consiste em se aplicar, a cada nova versão do software ou a cada ciclo, todos os testes que já foram aplicados nas versões ou ciclos de teste anteriores do sistema.  
+
+--- Slide 6 ---
+Técnica Estrutural/teste caixabranca:.......Técnica de teste que avalia o comportamento interno do componente de software.
+Método dos Caminhos Básicos:................fazer com que os casos de teste sejam gerados de forma a fazer com que o fluxo do programa passe por um número mínimo de caminhos entre a entrada e a saída do programa, sem o risco de ocorrerem redundâncias.
+Grafo de Controle:..........................É um grafo orientado (ou seja, suas arestas possuem setas) que descreve o fluxo de controle do programa
+Caminho independente:.......................qualquer caminho ao longo do programa que introduz pelo menos um novo conjunto de comandos de processamento ou uma nova condição.
+Teste Funcional/teste caixapreta:...........Técnica de teste em que o componente de software a ser testado é abordado como se fosse uma caixa-preta, ou seja, não se considera o comportamento interno do mesmo.
+Particionamento em classes de equivalência:.minimizar o número de casos de teste, selecionando apenas um caso de teste de cada classe, pois em princípio todos os elementos de uma classe devem se comportar de maneira equivalente.
+Análise do valor limite:....................Esse critério de teste explora os limites dos valores de cada classe de equivalência para preparar os casos de teste.
+Complexidade ciclomática:
+1. Contar o número de regiões no grafo de controle. No exemplo da figura anterior, temos três regiões, R1, R2 e R3: ? as duas internas(R1 e R2) ? e a externa (R3). Logo, este grafo tem 3 caminhos independentes
+2. Aplicar a fórmula: C = E - N + 2, C = número de caminhos independentes E = número de arestas N = número de nós
+3. Contar o número de estruturas de decisão no programa e somar 1.
